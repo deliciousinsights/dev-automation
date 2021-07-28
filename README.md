@@ -1,12 +1,12 @@
 # Dev automation and quality using Git hooks and Husky
 
-You can whether clone that template or follow the steps described below to get Husky/Git hooks assist your daily job with **commit analysis (content analysis and formatting, message linting)** and **branch naming restriction** (prevent bad branch name to be pushed/created on remote repository).
+You can whether clone that template or follow the steps described below to get Husky/Git hooks assist your daily job with **commit analysis (content analysis and formatting, message linting)** and **branch naming convention** (prevent bad branch name to be pushed/created on remote repository).
 
 ## What tools?
 
 ### pre-commit
 
-- [Precise commit](https://github.com/nrwl/precise-commits): run your linter on staged content (ie what's ready for commit), automatically format and (re)stage what's updated (uses [Prettier](https://prettier.io/)).
+- [Lint-staged](https://github.com/okonet/lint-staged): run your linter on staged content (ie what's ready for commit), automatically format and (re)stage what's updated (configured with [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/)).
 - [Git precommit checks](https://mbrehin.github.io/git-precommit-checks/): run your own rules to detect common mistakes (text described with patterns) and stop (or warn) commit.
 
 ### commit-msg
@@ -27,7 +27,7 @@ You can setup all of these in a minute following the given steps:
 *(You can just pick the ones you're interested in)*
 
 ```bash
-npm i -D husky eslint standard prettier eslint-config-prettier eslint-plugin-prettier precise-commits git-precommit-checks @commitlint/cli @commitlint/config-conventional commitizen validate-branch-name
+npm i --save-dev husky eslint standard prettier eslint-config-prettier eslint-plugin-prettier lint-staged git-precommit-checks @commitlint/cli @commitlint/config-conventional commitizen validate-branch-name
 ```
 
 Pfiou, that was hard! 😄
@@ -169,7 +169,7 @@ Then we must ask Husky to configure the scripts we want to run for each targeted
 **pre-commit**:
 
 ```bash
-npx husky add .husky/pre-commit "npx --no-install precise-commits && npx --no-install git-precommit-checks"
+npx husky add .husky/pre-commit "npx --no-install lint-staged && npx --no-install git-precommit-checks"
 ```
 
 **commit-msg**:
