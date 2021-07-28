@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+*.tar.gz
+*.sql.gz
+.tags*
+.gemtags
+._.DS_Store
+*.tmproj
+.rvmrc
+dump.rdb
+node_modules
